@@ -16,6 +16,25 @@ reference = "new-build-system"
 resolved_reference = "8c879f14e7cd132e5eb310abb0233354011cfde2"
 
 [[package]]
+name = "cytolk"
+version = "0.1.12"
+description = "A cython wrapper over the tolk library"
+optional = false
+python-versions = "*"
+files = [
+    {file = "cytolk-0.1.12-cp310-cp310-win32.whl", hash = "sha256:872d1559df6c4d35ff4ee5a29e935ff9d622d9e36bcde57c047dbddf165b0457"},
+    {file = "cytolk-0.1.12-cp310-cp310-win_amd64.whl", hash = "sha256:012cf07438ed4a8bf04b3b7dc247bb82e47e303bb25a069512fee30314e56c4f"},
+    {file = "cytolk-0.1.12-cp311-cp311-win32.whl", hash = "sha256:9978e6b44bb456112b028d0f4396e544c00ad50155a154651bd02dc18ea09143"},
+    {file = "cytolk-0.1.12-cp311-cp311-win_amd64.whl", hash = "sha256:e6151bfd220e7c6dde71b2b19b79e86b342b84f4f56346fbc00c646fa44eb892"},
+    {file = "cytolk-0.1.12-cp37-cp37m-win32.whl", hash = "sha256:bdab5b6d306fdc3562451783d8e84d4c39368a7c6d649fa2a88407d5d4498fac"},
+    {file = "cytolk-0.1.12-cp37-cp37m-win_amd64.whl", hash = "sha256:921ce4167c2353261febbd7145149aa82e7c88e6740feffedc218b416177ab2b"},
+    {file = "cytolk-0.1.12-cp38-cp38-win32.whl", hash = "sha256:698f97b26b55b0340074c751ddc2deb4a0b063965d6207990683fa204cfead9f"},
+    {file = "cytolk-0.1.12-cp38-cp38-win_amd64.whl", hash = "sha256:916232fc48e058062d0bc9384a123426957d6b0ec010fc5e53734d20bc6439a2"},
+    {file = "cytolk-0.1.12-cp39-cp39-win32.whl", hash = "sha256:efd6605779c25c96993bd8331f5a3206a3061434e4079c29868dc0b82176277b"},
+    {file = "cytolk-0.1.12-cp39-cp39-win_amd64.whl", hash = "sha256:5322b964a2ecf380e25b57fc8e742504ae8e9e57edb32565575d20691fee9fda"},
+]
+
+[[package]]
 name = "numpy"
 version = "1.26.0"
 description = "Fundamental package for array computing in Python"
@@ -167,4 +186,4 @@ six = "*"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "5db69429d08df3dbb21a7f89769222af04e6c4ff664ac7b73cf172d5167e50f7"
+content-hash = "70d7e843bca675cff1529a41e7ca0327dc14c41de79f4a294c429f613009da6c"
