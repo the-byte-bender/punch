@@ -1,0 +1,2 @@
+EVT_KEY_DOWN = 1
+EVT_KEY_UP = 2
