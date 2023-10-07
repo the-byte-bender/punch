@@ -13,7 +13,7 @@ class Timer:
         return self.w.Time()
 
     @elapsed.setter
-    def set_elapsed(self, ms: int):
+    def elapsed(self, ms: int):
         self.w.Start(ms)
 
     def restart(self):
