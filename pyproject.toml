@@ -9,6 +9,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 cyal = {git = "https://git.sr.ht/~thefake-vip/cyal", rev = "new-build-system"}
+wxpython = "^4.2.1"
 
 
 [build-system]
