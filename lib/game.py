@@ -16,15 +16,22 @@ class Game(wx.Frame):
         self.Bind(wx.EVT_TIMER, self.on_update)
 
     def on_key_down(self, event):
-        self.key_events.append(KeyEvent.from_wx_event(EVT_KEY_DOWN, event))
+        if not event.IsAutoRepeat():
+            self.key_events.append(KeyEvent.from_wx_event(EVT_KEY_DOWN, event))
         event.Skip()
 
     def on_key_up(self, event):
         self.key_events.append(KeyEvent.from_wx_event(EVT_KEY_UP, event))
         event.Skip()
 
+    def get_key_events(self) -> list[KeyEvent]:
+        """Returns all key events since the last call to this function"""
+        copy = self.key_events.copy()
+        self.key_events.clear()
+        return copy
+
     def on_update(self, event):
-        pass
+        events = self.get_key_events()
 
     def start(self):
         """Starts the game loop."""
