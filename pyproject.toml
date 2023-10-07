@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "punch"
+version = "0.1.0"
+description = ""
+authors = ["the_byte_bender <cccefg2@gmail.com>"]
+license = "gpl3"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+cyal = {git = "https://git.sr.ht/~thefake-vip/cyal", rev = "new-build-system"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
