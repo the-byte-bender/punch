@@ -16,3 +16,5 @@ cytolk = "^0.1.12"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+[tool.poetry.scripts]
+punch = "punch.__main__:main"

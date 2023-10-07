@@ -1,5 +1,5 @@
 import wx
-from lib import game
+from punch import game
 
 
 def main():
