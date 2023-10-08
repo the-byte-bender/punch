@@ -1,19 +1,21 @@
 import wx
 from .key_event import KeyEvent
 from .consts import *
+from .states.state import State
 
 
-class Game(wx.Frame):
+class Game(wx.Frame, State):
     """The main game object. Only one instance of this class should be created at a time"""
 
     def __init__(self, title: str = "Punch!", fps: int = 60):
-        super().__init__(None, title=title)
+        wx.Frame.__init__(self, None, title=title)
+        State.__init__(self)
         self.key_events: list[KeyEvent] = []
         self.Bind(wx.EVT_KEY_DOWN, self.on_key_down)
         self.Bind(wx.EVT_KEY_UP, self.on_key_up)
         self.fps = fps
-        self.timer = wx.Timer(self)
         self.Bind(wx.EVT_TIMER, self.on_update)
+        self.timer = wx.Timer(self)
 
     def on_key_down(self, event):
         if not event.IsAutoRepeat():
@@ -32,6 +34,7 @@ class Game(wx.Frame):
 
     def on_update(self, event):
         events = self.get_key_events()
+        self.update(event)
 
     def start(self):
         """Starts the game loop."""
