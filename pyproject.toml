@@ -11,6 +11,7 @@ python = "^3.11"
 cyal = {git = "https://git.sr.ht/~thefake-vip/cyal", rev = "new-build-system"}
 wxpython = "^4.2.1"
 cytolk = "^0.1.12"
+pyogg = "^0.6.14a1"
 
 
 [build-system]
