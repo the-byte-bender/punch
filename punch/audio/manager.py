@@ -1,6 +1,7 @@
 import cyal
 from .pool import Pool
 from .sound import Sound
+from .sound_group import SoundGroup, sound_factory_type
 
 
 class AudioManager:
@@ -25,6 +26,14 @@ class AudioManager:
     def new_oneshot_sound(self, file_path, **kwargs):
         """Alias for new_sound with oneshot set to true"""
         return self.new_sound(file_path, True, **kwargs)
+
+    def new_sound_group(
+        self, sound_factory: sound_factory_type | None = None, **defaults
+    ):
+        """Creates and returns a new sound group object. sound_factory is optional and will default to self.new_oneshot_sound, which should be appropriate for most applications. Any other keyword arguments will be passed as defaults for any new sound objects initialized by the created group."""
+        if sound_factory is None:
+            sound_factory = self.new_oneshot_sound
+        return SoundGroup(sound_factory, **defaults)
 
     def try_clean_oneshot_sounds(self):
         """Cleans any stopped/finished one shot sounds. Must be called periodicly to prevent memory leaks"""
