@@ -2,7 +2,7 @@ import wx
 from .key_event import KeyEvent
 from .consts import *
 from .states.state import State
-
+from .audio.manager import AudioManager
 
 class Game(wx.Frame, State):
     """The main game object. Only one instance of this class should be created at a time"""
@@ -10,6 +10,7 @@ class Game(wx.Frame, State):
     def __init__(self, title: str = "Punch!", fps: int = 60):
         wx.Frame.__init__(self, None, title=title)
         State.__init__(self)
+        self.audio = AudioManager()
         self.key_events: list[KeyEvent] = []
         self.Bind(wx.EVT_KEY_DOWN, self.on_key_down)
         self.Bind(wx.EVT_KEY_UP, self.on_key_up)
@@ -33,6 +34,7 @@ class Game(wx.Frame, State):
         return copy
 
     def on_update(self, event):
+        self.audio.try_clean_oneshot_sounds()
         events = self.get_key_events()
         self.update(event)
 
