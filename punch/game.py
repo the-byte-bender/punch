@@ -39,7 +39,7 @@ class Game(wx.Frame, State):
     def on_update(self, event):
         self.audio.try_clean_oneshot_sounds()
         events = self.get_key_events()
-        self.update(event)
+        self.update(events)
 
     def start(self):
         """Starts the game loop. And enters the title screen"""

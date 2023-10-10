@@ -1,5 +1,6 @@
 import wx
 from .state import State
+from .gameplay import Gameplay
 from ..ui_helpers.button import Button
 
 
@@ -15,7 +16,9 @@ class TitleScreen(wx.Dialog, State):
         vbox.Add(wx.StaticText(panel, label="Welcome!"), wx.ALIGN_CENTER | wx.BOTTOM)
         item_flags = wx.EXPAND | wx.TOP | wx.BOTTOM | wx.ALIGN_LEFT
         vbox.Add(Button(panel, "&Play game", self.on_play), item_flags)
-        vbox.Add(Button(panel, "&Exit", self.on_exit_button, id = wx.ID_CANCEL), item_flags)
+        vbox.Add(
+            Button(panel, "&Exit", self.on_exit_button, id=wx.ID_CANCEL), item_flags
+        )
         panel.SetSizerAndFit(vbox)
 
     def on_pop(self):
@@ -30,10 +33,13 @@ class TitleScreen(wx.Dialog, State):
 
     def on_exit(self):
         super().on_exit()
+        game = self.get_root_state()
         game.Show(True)
         self.Show(False)
+
     def on_play(self, event):
-        pass
+        self.get_root_state().append(Gameplay())
+
     def on_exit_button(self, event):
         self.Destroy()
         self.get_root_state().Destroy()
