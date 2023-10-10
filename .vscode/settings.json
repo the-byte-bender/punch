@@ -1,5 +1,6 @@
 {
     "conventionalCommits.scopes": [
-        "audio"
+        "audio",
+        "gameplay"
     ]
 }
