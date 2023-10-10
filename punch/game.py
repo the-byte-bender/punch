@@ -2,7 +2,9 @@ import wx
 from .key_event import KeyEvent
 from .consts import *
 from .states.state import State
+from .states.title_screen import TitleScreen
 from .audio.manager import AudioManager
+
 
 class Game(wx.Frame, State):
     """The main game object. Only one instance of this class should be created at a time"""
@@ -17,6 +19,7 @@ class Game(wx.Frame, State):
         self.fps = fps
         self.Bind(wx.EVT_TIMER, self.on_update)
         self.timer = wx.Timer(self)
+        self.title_screen = TitleScreen(self)
 
     def on_key_down(self, event):
         if not event.IsAutoRepeat():
@@ -39,5 +42,6 @@ class Game(wx.Frame, State):
         self.update(event)
 
     def start(self):
-        """Starts the game loop."""
+        """Starts the game loop. And enters the title screen"""
         self.timer.Start(int((1 / self.fps) * 1000))
+        self.append(self.title_screen)
