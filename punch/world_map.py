@@ -21,12 +21,12 @@ class WorldMap:
 
     def set_tile_at(self, x: int, y: int, z: int, type: TileType):
         if 0 <= x < self.width and 0 <= y < self.height and 0 <= z < self.depth:
-            self.map[x][y][z] = type
+            self.tiles[x][y][z] = type
 
     def get_tile_at(self, x: int, y: int, z: int) -> TileType:
         """Returns the tile at the given coordinates, otherwise returns TileType.air"""
         if 0 <= x < self.width and 0 <= y < self.height and 0 <= z < self.depth:
-            return self.map[x][y][z]
+            return self.tiles[x][y][z]
         return TileType.air  # Out of bounds so its all nothing
 
     def set_tiles_in(
@@ -42,4 +42,4 @@ class WorldMap:
         for x, y, z in itertools.product(
             range(min_x, max_x + 1), range(min_y, max_y + 1), range(min_z, max_z + 1)
         ):
-            self.set_tile(x, y, z, type)
+            self.set_tile_at(x, y, z, type)

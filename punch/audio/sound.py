@@ -10,6 +10,7 @@ class Sound:
         self.buffer = buffer
         self.source = self.context.gen_source()
         self.source.buffer = buffer
+        self.source.spatialize = True
         self._position = (0.0, 0.0, 0.0)
         self._direct = False
         for key, value in kwargs.items():
