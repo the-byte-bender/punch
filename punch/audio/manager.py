@@ -2,6 +2,7 @@ import cyal
 from .pool import Pool
 from .sound import Sound
 from .sound_group import SoundGroup, sound_factory_type
+from .utils import convert_to_openal_coordinates
 
 
 class AudioManager:
@@ -14,6 +15,9 @@ class AudioManager:
         self.context = cyal.Context(self.device, make_current=True, hrtf_soft=1)
         self.pool = Pool(self.context, base_sound_path)
         self.current_oneshot_sounds: list[Sound] = []
+
+    def set_listener_position(self, x: int, y: int, z: int):
+        self.context.listener.position = convert_to_openal_coordinates(x, y, z)
 
     def new_sound(self, file_path: str, oneshot=False, **kwargs):
         """Returns a new sound object. The buffer for the sound is either loaded from cache or cached from disk first on first request. If one_shot is True, the sound is considered to be a one-shot sound and will be kept in memory untill its stopped. One-shot sounds are also automaticly played when this function is called."""
